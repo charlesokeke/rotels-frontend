@@ -67,5 +67,7 @@
 	.weekdays-add-phone-and-rating-container{
 		flex-direction:column;
 	}
-	
+	.weekdays-container{
+		justify-content: flex-start;
+	}
 }

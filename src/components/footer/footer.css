@@ -5,13 +5,13 @@
 	align-items: center;
 	width:100%;
 	margin:0 0px 0px 0px;
-	padding:30px 0px 30px 0px;
+	padding:20px 0px 20px 0px;
 	background-color:green;
 	position:absolute;
 	bottom:0px;
 	left:0px;
 	right:0px;
-	position:relative;
+	position:fixed;
 
 
 }
