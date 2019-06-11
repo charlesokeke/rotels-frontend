@@ -1,0 +1,117 @@
+.test{
+	width:50%;
+	margin-bottom:5px;
+	
+
+}
+.container{
+	display:flex;
+	flex-direction:column;
+	align-items: center;
+	justify-content: center;
+	margin-top:50px;
+	padding-bottom:30rem;
+  position:relative;
+  
+	
+
+}
+.reset-button{
+   font-size:1rem;
+   padding:8px;
+   width:30%;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #85bf85;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  margin-left: 10px;
+
+
+}
+.bg-image{ 
+  background: url('https://cdn.pixabay.com/photo/2015/01/16/15/02/eating-601581_960_720.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+.next-button{
+   font-size:1rem;
+   padding:8px;
+   width:70%;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #85bf85;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  margin-top: 10px;
+
+
+}
+.title{
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    font-weight: 300!important;
+    text-rendering: optimizeLegibility;
+    font-size: 28px;
+    line-height: 1.3em;
+    padding: 0 0px 10px;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.3);
+    color: #585858  ;
+}
+
+.landing-page-message{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width:100%;
+}
+.reset-button:hover {
+  background-color: green;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  
+}
+
+.next-button:hover {
+  background-color: green;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  
+}
+
+@media screen and (max-width:720px) {
+	
+	.reset-button{
+		width:30%;
+	}
+	.test{
+		width:70%;
+	}
+  .title{
+    font-size: 15px;
+  }
+  
+
+}
