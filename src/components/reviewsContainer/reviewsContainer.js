@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography';
 
 const ReviewsContainer = (props)  => {
 	const {reviews} = props 
-	
 
 	const data = reviews.map((element, index) => {
 		return <ComplexGrid 

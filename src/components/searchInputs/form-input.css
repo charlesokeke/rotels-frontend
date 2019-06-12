@@ -111,7 +111,10 @@ label,span, input {
 @media screen and (max-width:720px) {
 	.formInputs{
 		width:100%;
-	}
+  }
+  .hotel-container{
+    width:100%;
+  }
 	.reset-button{
 		width:20%;
 	}
