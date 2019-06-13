@@ -14,6 +14,7 @@ const styles = {
   },
   grow: {
     flexGrow: 1,
+    cursor:"pointer"
   },
   navbar: {
     backgroundColor: green[500],
@@ -30,7 +31,7 @@ function ButtonAppBar(props) {
     <div className={classes.root}>
       <AppBar position="static" className={classes.navbar}>
         <Toolbar>
-          <Typography variant="h6" color="inherit" className={classes.grow}>
+          <Typography variant="h6" color="inherit" className={classes.grow} onClick={props.resetSearchOptions}>
             RHOTEL
           </Typography>
           <Button color="inherit"></Button>

@@ -5,13 +5,16 @@
 	align-items: center;
 	width:100%;
 	margin:0 0px 0px 0px;
-	padding:20px 0px 20px 0px;
-	background-color:green;
+	padding:5px 0px 5px 0px;
+	background-color:#fff;
 	position:absolute;
 	bottom:0px;
 	left:0px;
 	right:0px;
 	position:fixed;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 
 
 }
@@ -32,13 +35,12 @@
  #myBtn {
  
   position: absolute;
-  top: 5px;
   right: 5px;
   z-index: 99;
   font-size: 12px;
   border: none;
   outline: none;
-  background-color: #ccc;
+  background-color: rgb(44, 99, 39);
   color: white;
   cursor: pointer;
   padding: 15px;

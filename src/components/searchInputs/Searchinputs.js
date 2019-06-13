@@ -270,7 +270,7 @@ handleToken = () => {
 		          <span> OR</span>
 
 		        <label className="checkbox-container">
-		          {`Quickly search nearby ${searchOption.toLowerCase()}`}:
+		          {`Search nearby ${searchOption.toLowerCase()}`}:
 		          <input
 		            name="nearbySearch"
 		            type="checkbox"

@@ -70,7 +70,7 @@ event.stopPropagation()
     const { selectedOption,selectOptionComponentShowing, displayHotelOrRestaurantsResult} = this.state;
     return (
       <div style={{minHeight:'100vh',position:'relative'}}>
-      <ButtonAppBar />
+      <ButtonAppBar  resetSearchOptions={this.resetSearchOptions}/>
       <BrowserRouter>
       <div className="container">
          {selectOptionComponentShowing ? 
@@ -81,7 +81,7 @@ event.stopPropagation()
                 value={selectedOption}
                 onChange={this.handleChange}
                 options={options}
-                placeholder="select a search option"
+                placeholder="select a restaurant type"
                 theme={(theme) => ({
                         ...theme,
                         borderRadius: 5,
