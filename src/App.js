@@ -102,7 +102,7 @@ event.stopPropagation()
           }
       </div>
     </BrowserRouter>
-    <Footer />
+    {/** <Footer />*/}
   </div>
 
     );

@@ -197,7 +197,7 @@ handleToken = () => {
       return;
     }
     let filteredSearches = dataCollection.filter((element,index) => {
-      console.log(event.target.value)
+      console.log(element)
       return element.name.toLowerCase().includes(event.target.value.toLowerCase())
     })
     filteredSearches = _.uniqBy(filteredSearches, function(element){
