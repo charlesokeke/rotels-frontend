@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/rotels-frontend/precache-manifest.8aa432cc414ef7a72ece0ccb9c2dc970.js"
+  "/rotels-frontend/precache-manifest.95ee5bd0baa920c3f29693f4960f8b51.js"
 );
 
 workbox.clientsClaim();
