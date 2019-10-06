@@ -216,7 +216,7 @@ handleToken = () => {
   	const cleanData = data.map((element, index) =>{
   		const {photos, name, formatted_address, opening_hours, user_ratings_total,rating,place_id} = element
   		return <MediaCard 
-  		image={photos ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photos[0].photo_reference}&key=AIzaSyDBUOAf-TRFXcQkDLaGk4kiQZ7ZJSyJzJc` : 'https://cdn.pixabay.com/photo/2017/01/14/12/48/hotel-1979406__340.jpg'}
+  		image={photos ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photos[0].photo_reference}&key=AIzaSyDBUOAf-TRFXcQkDLaGk4kiQZ7ZJSyJzJc` : 'https://via.placeholder.com/500.png?text=NO+IMAGES+AVAILABLE'}
   		name={name} 
   		address={formatted_address || element.vicinity} 
   		openHours={opening_hours !== undefined && opening_hours.open_now ? 'Status: Open': opening_hours === undefined ? "Status: N/A":"Status: Closed"}  

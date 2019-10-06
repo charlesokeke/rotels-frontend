@@ -22,18 +22,24 @@ const styles = {
     marginLeft: -12,
     marginRight: 20,
   },
+  fontSize:30
 };
 
 function ButtonAppBar(props) {
   const { classes } = props;
+
+  function check () {
+    window.location.reload(false)
+  }
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.navbar}>
         <Toolbar>
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-            RHOTEL
+          <Typography variant="h5" color="inherit" className={classes.grow}>
+            <Button  color="inherit" onClick={check} size="large">
+              RHOTEL
+            </Button>
           </Typography>
-          <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
     </div>

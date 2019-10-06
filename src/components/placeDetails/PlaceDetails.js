@@ -73,7 +73,7 @@ class PlaceDetailsInfo extends React.PureComponent{
 				<Divider  light/>
 				<div style={{paddingTop:'30px'}}>
 				  <div className="weekdays-add-phone-and-rating-container">
-				   <div style={{display:'flex', alignItems:'center',flex:'2'}}>
+				   <div style={{display:'flex', alignItems:'center'}}>
 				      <div>
 					    <Typography variant="h6" align="center"> Place Details</Typography>
 						<p className="place-icons"> <Icon color="primary">place</Icon>{formatted_address}</p>

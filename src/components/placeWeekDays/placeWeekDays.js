@@ -9,7 +9,7 @@ const PlaceWeekDays = (props) => {
 	
 	return(
 		<div>
-		     <p>Weekdays</p>
+		     <h6>Weekdays</h6>
 		    <ul style={{listStyleType:'none',padding:'0px',marginLeft:'0px',fontSize:'0.9rem'}}>
 				  {weekdays}
 		    </ul>
