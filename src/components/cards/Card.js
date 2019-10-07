@@ -73,6 +73,4 @@ MediaCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 MediaCard.defaultProps = { address: 'Not available', name: "Not available" };
-
-
 export default withStyles(styles)(MediaCard);

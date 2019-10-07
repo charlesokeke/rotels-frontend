@@ -10,8 +10,6 @@ import Icon from '@material-ui/core/Icon';
 
 export default class FormDialog extends React.PureComponent {
 
-
-  
   render() {
 
     const{handleClickOpen, handleClickClose, handleChangeStartAddress, open, handleClose} = this.props

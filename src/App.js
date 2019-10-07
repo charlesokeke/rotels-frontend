@@ -4,7 +4,6 @@ import Nameform from './components/searchInputs/Searchinputs'
 import ButtonAppBar from './components/navbar/Navbar'
 import './test.css'
 import Footer from './components/footer/Footer'
-import Typography from '@material-ui/core/Typography';
 import{BrowserRouter} from 'react-router-dom'
 import scriptLoader from 'react-async-script-loader'
 

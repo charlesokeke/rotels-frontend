@@ -3,13 +3,8 @@ import ComplexGrid from '../../components/placeReview/Reviews'
 import Typography from '@material-ui/core/Typography';
 
 
-
-
-
 const ReviewsContainer = (props)  => {
 	const {reviews} = props 
-	
-
 	const data = reviews.map((element, index) => {
 		return <ComplexGrid 
 				name={element.author_name}
@@ -20,8 +15,6 @@ const ReviewsContainer = (props)  => {
 				key={index}
 		      />
 	})
-
-
 	return(
 
 		<div>
@@ -33,11 +26,6 @@ const ReviewsContainer = (props)  => {
 
 
 	)
-	
-
-
-
 }
 ReviewsContainer.defaultProps = { reviews: []};
-
 export default React.memo(ReviewsContainer)

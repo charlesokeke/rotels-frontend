@@ -3,15 +3,12 @@ import './footer.css'
 
 
 class Footer extends React.PureComponent{
-	
 toTop = () => {
 	window.scrollTo({
 		top: 0,
 		left: 0,
 		behavior: 'smooth'
 	  });
-
-
 }
 	render () {
 	return (
@@ -21,9 +18,6 @@ toTop = () => {
 				 <button id="myBtn" onClick={this.toTop}>Top</button>
 	  </footer>
 	)
-
-
-
 	}
 }
 export default Footer
