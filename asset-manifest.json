@@ -1,13 +1,13 @@
 {
-  "main.css": "/rotels-frontend/static/css/main.93a83891.chunk.css",
-  "main.js": "/rotels-frontend/static/js/main.a298ee90.chunk.js",
-  "main.js.map": "/rotels-frontend/static/js/main.a298ee90.chunk.js.map",
+  "main.css": "/rotels-frontend/static/css/main.17ebe37f.chunk.css",
+  "main.js": "/rotels-frontend/static/js/main.32f50314.chunk.js",
+  "main.js.map": "/rotels-frontend/static/js/main.32f50314.chunk.js.map",
   "runtime~main.js": "/rotels-frontend/static/js/runtime~main.c03f0c83.js",
   "runtime~main.js.map": "/rotels-frontend/static/js/runtime~main.c03f0c83.js.map",
   "static/js/2.242c228b.chunk.js": "/rotels-frontend/static/js/2.242c228b.chunk.js",
   "static/js/2.242c228b.chunk.js.map": "/rotels-frontend/static/js/2.242c228b.chunk.js.map",
   "index.html": "/rotels-frontend/index.html",
-  "precache-manifest.b0b621201fc410d8135c496016a6aedd.js": "/rotels-frontend/precache-manifest.b0b621201fc410d8135c496016a6aedd.js",
+  "precache-manifest.b21b32aa0427ec314e28f44c71157f7c.js": "/rotels-frontend/precache-manifest.b21b32aa0427ec314e28f44c71157f7c.js",
   "service-worker.js": "/rotels-frontend/service-worker.js",
-  "static/css/main.93a83891.chunk.css.map": "/rotels-frontend/static/css/main.93a83891.chunk.css.map"
+  "static/css/main.17ebe37f.chunk.css.map": "/rotels-frontend/static/css/main.17ebe37f.chunk.css.map"
 }
