@@ -2,12 +2,11 @@ import React from 'react'
 import AddStyles from '../../hoc/center'
 import './renderMapCss.css'
 
-
 class  RenderMap extends React.PureComponent {
     constructor (props) {
       super(props)
-      this.state ={
-        test: ''
+      this.state = {
+        noMap: null
       }
     this.mapRef = React.createRef();
     this.panelRef = React.createRef();
@@ -44,23 +43,30 @@ class  RenderMap extends React.PureComponent {
                 origin: changedAddress || `${lat},${lng}`,
                 destination: destination,
                 travelMode: 'DRIVING'
-              }, function(response, status) {
+              }, (response, status) => {
                 if (status === 'OK') {
                   directionsDisplay.setDirections(response);
                 } else {
                    mapReference.style.height = "0px";
                    rightPanel.style.height = "0px";
-                   window.alert('Directions request failed due to ' + status);
+                   this.setState({noMap:"Driving direction unavailable"})
                 }
               });
       }
 
       render(){
-
+      
         return (
         <div style={this.props.center}>
           <div ref={this.panelRef} id="right-panel"></div>
           <div ref={this.mapRef} id="map"></div>
+          {this.state.noMap ? 
+            (<div style={{backgroundColor:'#f2dede',borderColor:"#ebccd1",color:'#a94442',padding:"15px", border:"1px solid transparent",borderRadius:"4px"}}>
+                <strong>{this.state.noMap}</strong> 
+            </div>
+            ) :
+            null
+         }
         </div>
 
         )

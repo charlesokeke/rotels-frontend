@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const AddStyles = (WrappedComponent,parentLayout) => {
 	return class centerContent extends React.Component{
 
@@ -10,9 +9,6 @@ const AddStyles = (WrappedComponent,parentLayout) => {
 			<WrappedComponent {...props}/>
            )
 		}
-
-
-
 	}
 }
 export default AddStyles

@@ -2,11 +2,10 @@ import React from 'react'
 import ComplexGrid from '../../components/placeReview/Reviews'
 import Typography from '@material-ui/core/Typography';
 
-
 const ReviewsContainer = (props)  => {
 	const {reviews} = props 
-	const data = reviews.map((element, index) => {
-		return <ComplexGrid 
+	const data = reviews.map((element, index) => (
+		 <ComplexGrid 
 				name={element.author_name}
 				url ={element.profile_photo_url}
 				rating={element.rating}
@@ -14,17 +13,15 @@ const ReviewsContainer = (props)  => {
 				text= {element.text}
 				key={index}
 		      />
-	})
+	))
+	
 	return(
-
 		<div>
 		  <Typography variant="title" align='center' gutterBottom>
         		{reviews.length ? "Reviews" : "Reviews not available"}
       		</Typography>
 			{data}
 		</div>
-
-
 	)
 }
 ReviewsContainer.defaultProps = { reviews: []};

@@ -5,49 +5,33 @@ import Spinners from '../../components/spinners/Spinner'
 import _ from 'lodash'
 import './form-input.css'
 
-
 class NameForm extends React.PureComponent {
   constructor(props) {
     super(props);
-    const {displayHotelOrRestaurantsResult, selectedOption}= this.props
+    const {displayRestaurantsResult, selectedOption} = this.props
     this.state = {
-    value: '', 
-    nearbySearch: false, 
-    searchOption: selectedOption.value,
-    displayHotelOrRestaurantsResult: displayHotelOrRestaurantsResult,
-    hotelOrRestaurantData: [],
-    location: {
-    	lat: 0,
-    	lng:0
-    },
-    placeDetails: false,
-    confirmPlaceDetail:true,
-    checkboxDisabled: false,
-    pageToken: '',
-    spinners: false,
-    dataCollection: [],
-
+        value: '', 
+        nearbySearch: false, 
+        searchOption: selectedOption.value,
+        displayRestaurantsResult: displayRestaurantsResult,
+        hotelOrRestaurantData: [],
+        location: {
+          lat: 0,
+          lng:0
+        },
+        placeDetails: false,
+        confirmPlaceDetail:true,
+        checkboxDisabled: false,
+        pageToken: '',
+        spinners: false,
+        dataCollection: [],
   };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
     this.myRef = React.createRef();
     this.myRef2 = React.createRef();
     
   }
 
-
   componentDidMount (){
-    /**var options = {
-        types: ['(cities)'],
-        componentRestrictions: {country: "us"}
-       }
-    var autocomplete = new window.google.maps.places.Autocomplete(this.myRef2.current, options)
-  	 window.google.maps.event.addListener(autocomplete, 'place_changed', function(){
-         var place = autocomplete.getPlace()
-      })
-**/
-
     navigator.geolocation.getCurrentPosition(
          (position) => {
               let {latitude, longitude} = position.coords
@@ -70,22 +54,22 @@ class NameForm extends React.PureComponent {
     if(window.scrollY > Math.round(window.innerHeight/2))window.scrollTo(0, 0)
   }
 
-  fetchHotelAndRestaurantData = (url,object) => {
+  fetchRestaurantData = (url,object) => {
     // this state change shows the spinners component and hides the next button if a new query is done. confirmPlaceDetails
     // was set to false so the spiner will show when searches are submited from the deatails page
      this.setState({spinners:true, hotelOrRestaurantData: '', pageToken: '', confirmPlaceDetail: false})
-  	fetch(url, {
+  	  fetch(url, {
     			method:'post',
     			headers:{'content-type':'application/json'},
     			body:JSON.stringify(object)
     		})
     		.then(response => response.json())
     		.then(data =>{
-    			console.log(data)
-    			this.setState((prevState, props) => {
+          console.log(data)
+    			this.setState((prevState) => {
             return {
               hotelOrRestaurantData:data.results,
-              displayHotelOrRestaurantsResult:true,
+              displayRestaurantsResult:true,
               confirmPlaceDetail:false,
               pageToken: data.next_page_token,
               spinners:false,
@@ -97,13 +81,14 @@ class NameForm extends React.PureComponent {
 
 
   }
-// function defined to get place detail
 
-fetchHotelAndRestaurantDetails = (url,object) => {
-  // this state change shows the spinners component and hides the next buttonif a new query is done
-      this.setState({spinners:true, 
-      hotelOrRestaurantData: '', 
-      pageToken: ''
+fetchRestaurantDetails = (url,object) => {
+  // this state change shows the spinners component and hides the next button if a new query is done
+      this.setState(
+        {
+          spinners:true, 
+          hotelOrRestaurantData: '', 
+          pageToken: ''
     })
     fetch(url, {
           method:'post',
@@ -112,11 +97,10 @@ fetchHotelAndRestaurantDetails = (url,object) => {
         })
         .then(response => response.json())
         .then(data =>{
-          console.log(JSON.parse(JSON.stringify(data)).result)
           this.setState({
             spinners:false,
             placeDetails:JSON.parse(JSON.stringify(data)).result,
-            displayHotelOrRestaurantsResult:false,
+            displayRestaurantsResult:false,
             confirmPlaceDetail:true,
           })
         
@@ -124,26 +108,23 @@ fetchHotelAndRestaurantDetails = (url,object) => {
 
 }
 
-// function to get details of places
   getPlaceDetails = (place_id) => {
     //This state change makes sure that the next button does not appear after you go to the details page and return to another view
     this.setState({
       pageToken: null
     })
-    this.fetchHotelAndRestaurantDetails('https://fast-plains-49197.herokuapp.com/place_details',{id:place_id})
+    this.fetchRestaurantDetails('https://fast-plains-49197.herokuapp.com/place_details',{id:place_id})
   }
   
 handleToken = () => {
-   this.fetchHotelAndRestaurantData('https://fast-plains-49197.herokuapp.com/place_token', {token:this.state.pageToken})
+   this.fetchRestaurantData('https://fast-plains-49197.herokuapp.com/place_token', {token:this.state.pageToken})
    this.setState({token:null
    })
 }
   
 
-  handleChange(event) {
+  handleChange = (event) => {
     event.stopPropagation()
-    //const node = this.myRef.current;
-    //console.log(node)
     let {checkboxDisabled} = this.state
   	let element = this.myRef.current
   	let elementValue = event.target.value
@@ -154,7 +135,7 @@ handleToken = () => {
     });
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     // This ref disables the element so it will work when when the query submits a search string
     this.myRef.current.disabled = false
     const {value, nearbySearch, searchOption, location} = this.state;
@@ -165,20 +146,20 @@ handleToken = () => {
   	
   	if(value || nearbySearch){
     	if(nearbySearch){
-    	     this.fetchHotelAndRestaurantData('https://fast-plains-49197.herokuapp.com/nearby_restaurants', {...location, keyword:searchOption.toLowerCase()})
+    	     this.fetchRestaurantData('https://fast-plains-49197.herokuapp.com/nearby_restaurants', {...location, keyword:searchOption.toLowerCase()})
     	
     	}else if(value)
       {
-    		  this.fetchHotelAndRestaurantData('https://fast-plains-49197.herokuapp.com/state_restaurants', {name: value, searchOption:searchOption.toLowerCase()})
+    		  this.fetchRestaurantData('https://fast-plains-49197.herokuapp.com/state_restaurants', {name: value, searchOption:searchOption.toLowerCase()})
     	}
     } else{
-        alert('you have to pick a choice')
+        alert('Please enter city and state or select the quick search option')
   }
     
 }
 
 
-  handleInputChange(event) {
+  handleInputChange = (event)=> {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     let element = this.myRef2.current
@@ -189,30 +170,30 @@ handleToken = () => {
   }
 
   handleSearch = (event) => {
-    //this.setState({confirmPlaceDetail:false, displayHotelOrRestaurantsResult:false}
+    
     const{dataCollection} = this.state
     if(dataCollection.length === 0) {
       event.target.value = ''
       alert('You dont have any recent searches')
       return;
     }
-    let filteredSearches = dataCollection.filter((element,index) => {
-      console.log(event.target.value)
-      return element.name.toLowerCase().includes(event.target.value.toLowerCase())
-    })
+    let filteredSearches = dataCollection.filter( element =>  element.name.toLowerCase().includes(event.target.value.toLowerCase()))
     filteredSearches = _.uniqBy(filteredSearches, function(element){
       return element.formatted_address || element.vicinity
     })
     this.setState({
       hotelOrRestaurantData: filteredSearches, 
       confirmPlaceDetail: false, 
-      displayHotelOrRestaurantsResult:true, 
+      displayRestaurantsResult:true, 
       pageToken:false
     })
 
   }
+  clear = (event) => {
+    event.target.value = ""
+  }
   
-  handleHotelData = (data) => {
+  handleRestaurantData = (data) => {
   	const cleanData = data.map((element, index) =>{
   		const {photos, name, formatted_address, opening_hours, user_ratings_total,rating,place_id} = element
   		return <MediaCard 
@@ -228,7 +209,6 @@ handleToken = () => {
   		/>
   	})
   	return cleanData
-
   }
   
   render() {
@@ -240,37 +220,40 @@ handleToken = () => {
           placeDetails, 
           location, 
           hotelOrRestaurantData,
-          displayHotelOrRestaurantsResult,
+          displayRestaurantsResult,
           pageToken
         } = this.state
 
     const{
-      resetSearchOptions, 
-      selectOptionComponentShowing
+        resetSearchOptions, 
+        selectOptionComponentShowing
       } = this.props   
     
     return (
     	<div className='form-container'>
-            <input type="text" 
-            className="input-box" 
-            placeholder="Search past or current results" 
-            id="input-box" 
-            onChange={this.handleSearch}
+            <input 
+              type="text" 
+              className="input-box" 
+              placeholder="Search past or current results" 
+              id="input-box" 
+              onChange={this.handleSearch}
+              onBlur={this.clear}
             />
 		      
           <form onSubmit={this.handleSubmit} className="formInputs">
-		          <input type="text" 
-              value={value} 
-              onChange={this.handleChange} 
-              className="input-box" 
-              placeholder={`Enter a city & state to search  for ${searchOption.toLowerCase()}`} 
-              id="input-box" 
-              ref={this.myRef2}
+              <input 
+                type="text" 
+                value={value} 
+                onChange={this.handleChange} 
+                className="input-box" 
+                placeholder={`Enter a city & state to search  for ${searchOption.toLowerCase()}`} 
+                id="input-box" 
+                ref={this.myRef2}
               />
 		          <span> OR</span>
 
 		        <label className="checkbox-container">
-		          {`Quickly search nearby ${searchOption.toLowerCase()}`}:
+		          {`Search nearby ${searchOption.toLowerCase()}`}:
 		          <input
 		            name="nearbySearch"
 		            type="checkbox"
@@ -290,18 +273,21 @@ handleToken = () => {
 		      </form>
 		      
           	<div className="hotel-container">
-          	{displayHotelOrRestaurantsResult && hotelOrRestaurantData.length ? 
-          	this.handleHotelData(hotelOrRestaurantData) : console.log('data is not showing')}
+              {displayRestaurantsResult && hotelOrRestaurantData.length ? 
+              this.handleRestaurantData(hotelOrRestaurantData) : null}
           	</div>
               {placeDetails && confirmPlaceDetail ? 
                 <PlaceDetailsInfo 
-                placeDetailsData = {placeDetails} 
-                lat={location.lat} 
-                lng={location.lng}/> : 
-                ''}
+                    placeDetailsData = {placeDetails} 
+                    lat={location.lat} 
+                    lng={location.lng}
+                /> : 
+                null
+                }
                 {pageToken  && !(confirmPlaceDetail && placeDetails)? 
                   <button onClick={this.handleToken} className="next-button">Load More</button> :
-                   ''}
+                   null
+                   }
                    <Spinners spin={this.state.spinners}/>
       </div>
     );

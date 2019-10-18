@@ -15,7 +15,7 @@
     left: 0;
     right: 0;
     position: absolute;
-    box-shadow: 0 0 5px 0 rgba(0,0,0,.75);
+    box-shadow: 0 2px 3px #ccc;
 
 
 }

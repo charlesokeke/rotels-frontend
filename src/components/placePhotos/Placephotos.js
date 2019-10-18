@@ -14,7 +14,6 @@ const styles = theme => ({
   },
   gridList: {
     flexWrap: 'nowrap',
-    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)',
   },
   title: {
@@ -28,7 +27,7 @@ const styles = theme => ({
 
 class ImageGridList extends React.PureComponent{
   render () {
-    const { classes , photos} = this.props;
+    const { classes, photos} = this.props;
     return (
         <div className={classes.root}>
           <GridList cellHeight={160} className={classes.gridList} cols={2.5}>

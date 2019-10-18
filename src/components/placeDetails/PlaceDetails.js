@@ -1,26 +1,14 @@
 import React from "react"
-import './details.css'
+import './placeDetails.css'
 import ImageGridList from '../../components/placePhotos/Placephotos'
 import ReviewsContainer from '../../components/reviewsContainer/reviewsContainer'
 import PlaceWeekDays from '../../components/placeWeekDays/placeWeekDays'
 import RenderMap from '../../components/renderMap/renderMap'
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
-import green from '@material-ui/core/colors/green';
 import FormDialog from '../../components/changeOriginAddress/changeOriginAddress'
 import Icon from '@material-ui/core/Icon';
 
-
-const styles = theme => ({
-  margin: {
-    margin: theme.spacing.unit * 2,
-    color: green[500],
-  },
-  badge:{color: green[500],},
-  padding: {
-    padding: `0 ${theme.spacing.unit * 2}px`,
-  },
-});
 
 class PlaceDetailsInfo extends React.PureComponent{
 	state ={
@@ -76,11 +64,11 @@ class PlaceDetailsInfo extends React.PureComponent{
 				   <div style={{display:'flex', alignItems:'center'}}>
 				      <div>
 					    <Typography variant="h6" align="center"> Place Details</Typography>
-						<p className="place-icons"> <Icon color="primary">place</Icon>{formatted_address}</p>
-						<p className="place-icons"> <Icon color="primary">call</Icon>{formatted_phone_number}</p>
-						<p className="place-icons"> <Icon color="primary">call</Icon>{international_phone_number}</p>
-						<p className="place-icons"> <Icon color="primary">star</Icon>Rating: {Number.isInteger(rating) ? `${rating }.0`: `${rating}`}</p>
-						<p className="place-icons"><Icon color="primary">star</Icon>Total rating: {user_ratings_total}</p>
+						<p className="place-icons"> <Icon color="primary">place</Icon>{formatted_address || "None available"}</p>
+						<p className="place-icons"> <Icon color="primary">call</Icon>{formatted_phone_number  || "None available"}</p>
+						<p className="place-icons"> <Icon color="primary">call</Icon>{international_phone_number || "None available"}</p>
+						<p className="place-icons"> <Icon color="primary">star</Icon>Rating: {Number.isInteger(rating) ? `${rating }.0`: `${rating.toFixed(1)}`}</p>
+						<p className="place-icons"><Icon color="primary">star</Icon>Total rating: {user_ratings_total || "None available"}</p>
 						</div>
 				    </div>
 					  <div className="weekdays-container">
@@ -106,17 +94,17 @@ class PlaceDetailsInfo extends React.PureComponent{
 							fullwidth
 						/>
 					</div>
-					<Divider variant="middle" />
-					<RenderMap 
-						destination={formatted_address} 
-						lat={lat} 
-						lng={lng} 
-						changedAddress={changeOriginAddress}
-					 />
+						<Divider variant="middle" />
+						<RenderMap 
+							destination={formatted_address} 
+							lat={lat} 
+							lng={lng} 
+							changedAddress={changeOriginAddress}
+						/>
 				</div>
 			</div>
 			<div className="place-details-boxes">
-				<ReviewsContainer reviews={reviews}/>
+						<ReviewsContainer reviews={reviews}/>
 			</div>
 		</div>
 		)

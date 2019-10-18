@@ -2,7 +2,7 @@ import React from 'react';
 import Select from 'react-select';
 import Nameform from './components/searchInputs/Searchinputs'
 import ButtonAppBar from './components/navbar/Navbar'
-import './test.css'
+import './App.css'
 import Footer from './components/footer/Footer'
 import{BrowserRouter} from 'react-router-dom'
 import scriptLoader from 'react-async-script-loader'
@@ -27,13 +27,7 @@ const options = [
   { value: 'Fast foods restaurants', label: 'Fast foods restaurants'},
   { value: 'Barbeque ribs restaurants', label: 'Barbeque ribs restaurants'},
   { value: 'Soul foods restaurants', label: 'Soul foods restaurants'},
-  { value: 'Italian restaurants', label: 'Italian restaurants'},
-
-
-
-
-  
-  
+  { value: 'Italian restaurants', label: 'Italian restaurants'}
 
 ];
 
@@ -42,10 +36,9 @@ class App extends React.Component {
   state = {
     selectedOption: null,
     selectOptionComponentShowing:true,
-    displayHotelOrRestaurantsResult:true
+    displayRestaurantsResult:true
     
   }
-
 
   handleChange = (selectedOption) => {
     this.setState(
@@ -53,20 +46,19 @@ class App extends React.Component {
                   selectedOption:selectedOption, 
                   selectOptionComponentShowing:false
                 }
-                  );
+              );
   }
 
   resetSearchOptions = (event) => {
-      this.setState({
+        this.setState({
         selectOptionComponentShowing: true,
-        displayHotelOrRestaurantsResult:false
+        displayRestaurantsResult:false
 
       })
-event.stopPropagation()
-
+      event.stopPropagation()
   }
   render() {
-    const { selectedOption,selectOptionComponentShowing, displayHotelOrRestaurantsResult} = this.state;
+    const { selectedOption,selectOptionComponentShowing, displayRestaurantsResult} = this.state;
     return (
       <div style={{minHeight:'100vh',position:'relative'}}>
       <ButtonAppBar />
@@ -93,10 +85,10 @@ event.stopPropagation()
                 /> 
           </div>): 
           <Nameform 
-          selectedOption ={selectedOption} 
-          selectOptionComponentShowing={selectOptionComponentShowing}
-          resetSearchOptions={this.resetSearchOptions}
-          displayHotelOrRestaurantsResult={displayHotelOrRestaurantsResult}
+              selectedOption ={selectedOption} 
+              selectOptionComponentShowing={selectOptionComponentShowing}
+              resetSearchOptions={this.resetSearchOptions}
+              displayRestaurantsResult={displayRestaurantsResult}
           />
           }
       </div>

@@ -9,8 +9,8 @@ body {
   line-height: 1.43;
   letter-spacing: 0.01071em;
   background-color: #fff;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   height: 100%;
 
 
