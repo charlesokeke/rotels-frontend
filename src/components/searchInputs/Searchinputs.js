@@ -30,7 +30,7 @@ class NameForm extends React.PureComponent {
     this.myRef2 = React.createRef();
     
   }
-
+  // Get user current position for location based searches and directions
   componentDidMount (){
     navigator.geolocation.getCurrentPosition(
          (position) => {
@@ -49,11 +49,11 @@ class NameForm extends React.PureComponent {
     )
 
   }
-
+  // Scroll to top of page when page updates
   componentDidUpdate () {
     if(window.scrollY > Math.round(window.innerHeight/2))window.scrollTo(0, 0)
   }
-
+  // Get restaurant data from Google places api
   fetchRestaurantData = (url,object) => {
     // this state change shows the spinners component and hides the next button if a new query is done. confirmPlaceDetails
     // was set to false so the spiner will show when searches are submited from the deatails page
@@ -81,7 +81,7 @@ class NameForm extends React.PureComponent {
 
 
   }
-
+//Get resturant details from Google Places API
 fetchRestaurantDetails = (url,object) => {
   // this state change shows the spinners component and hides the next button if a new query is done
       this.setState(
@@ -107,7 +107,7 @@ fetchRestaurantDetails = (url,object) => {
         })
 
 }
-
+  // Generic function that calls FetchRestaurantDetails with Place Id passed in as parameter
   getPlaceDetails = (place_id) => {
     //This state change makes sure that the next button does not appear after you go to the details page and return to another view
     this.setState({
@@ -115,14 +115,14 @@ fetchRestaurantDetails = (url,object) => {
     })
     this.fetchRestaurantDetails('https://fast-plains-49197.herokuapp.com/place_details',{id:place_id})
   }
-  
+  // Get additional data from Google API using tokens
 handleToken = () => {
    this.fetchRestaurantData('https://fast-plains-49197.herokuapp.com/place_token', {token:this.state.pageToken})
    this.setState({token:null
    })
 }
   
-
+  // Disables and enables  the quick search button and the city/state input field 
   handleChange = (event) => {
     event.stopPropagation()
     let {checkboxDisabled} = this.state
@@ -134,7 +134,7 @@ handleToken = () => {
       confirmPlaceDetail: false
     });
   }
-
+  // Handles the search for nearby restaurants or searches based on city, state or country
   handleSubmit = (event) => {
     // This ref disables the element so it will work when when the query submits a search string
     this.myRef.current.disabled = false
@@ -158,7 +158,7 @@ handleToken = () => {
     
 }
 
-
+  // Handles the disabling and enabling of the quick search checkbox
   handleInputChange = (event)=> {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -168,7 +168,7 @@ handleToken = () => {
      nearbySearch: value
     });
   }
-
+  // Handles the filtered search for current and past search results
   handleSearch = (event) => {
     
     const{dataCollection} = this.state
@@ -189,10 +189,11 @@ handleToken = () => {
     })
 
   }
+  //clears the search input fied onBlur
   clear = (event) => {
     event.target.value = ""
   }
-  
+  // Maps restaurant data to a card component
   handleRestaurantData = (data) => {
   	const cleanData = data.map((element, index) =>{
   		const {photos, name, formatted_address, opening_hours, user_ratings_total,rating,place_id} = element
