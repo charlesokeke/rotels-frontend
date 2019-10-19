@@ -15,24 +15,15 @@ class PlaceDetailsInfo extends React.PureComponent {
     changeOriginAddress: ""
   };
 
-  handleClickOpen = () => {
-    this.setState({ open: true });
-  };
-  handleClickClose = () => {
-    this.setState({ open: false });
-  };
-
-  handleClose = event => {
-    var input = document.getElementById("name").value;
-    if (input.length > 10) {
+  handleClose = (value) => {
+    console.log("handleclose")
       this.setState({
         open: false,
-        changeOriginAddress: input
+        changeOriginAddress: value
       });
-    } else {
-      alert("Invalid input");
-    }
+
   };
+
 
   render() {
     const { placeDetailsData, lng, lat } = this.props;
@@ -51,7 +42,7 @@ class PlaceDetailsInfo extends React.PureComponent {
       reviews
     } = placeDetailsData;
 
-    const { changeOriginAddress, open } = this.state;
+    const { changeOriginAddress} = this.state;
 
     return (
       <div className="place-details-info-container">
@@ -149,10 +140,7 @@ class PlaceDetailsInfo extends React.PureComponent {
                 </a>
               </p>
               <FormDialog
-                handleClickOpen={this.handleClickOpen}
                 handleClose={this.handleClose}
-                open={open}
-                handleClickClose={this.handleClickClose}
                 margin="dense"
                 autofocus
                 fullwidth

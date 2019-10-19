@@ -8,19 +8,35 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 export default class FormDialog extends React.PureComponent {
+  state ={
+    value:"",
+    open:false,
 
+  }
+  getValue = (event) => {
+     this.setState({value:event.target.value})
+  }
+  handleClickOpen = () => {
+    
+    this.setState({ open: true });
+  }
+  handleClickClose = () => {
+    this.setState({ open: false });
+  }
+  static getDerivedStateFromProps(nextProps, prevState){
+    console.log('hello')
+  }
   render() {
-
-    const{handleClickOpen, handleClickClose, handleChangeStartAddress, open, handleClose} = this.props
+    const{ handleClose} = this.props
 
     return (
       <div>
-        <Button variant="outlined" color="primary" onClick={handleClickOpen} size="small">
+        <Button variant="outlined" color="primary" onClick={this.handleClickOpen} size="small">
           Edit Address
         </Button>
         <Dialog
-          open={open}
-          onClose={handleClose}
+          open={this.state.open}
+          onClose={this.handleClickClose}
           aria-labelledby="form-dialog-title"
         >
           <DialogTitle id="form-dialog-title">Start Address</DialogTitle>
@@ -31,18 +47,17 @@ export default class FormDialog extends React.PureComponent {
             <TextField
               autoFocus
               margin="dense"
-              id="name"
               label="New Start address"
-              type="email"
+              type="text"
               fullWidth
-              onChange={handleChangeStartAddress}
+              onChange={this.getValue}
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClickClose} color="primary">
+            <Button onClick={this.handleClickClose} color="primary">
               Cancel
             </Button>
-            <Button onClick={handleClose} color="primary">
+            <Button onClick={() =>handleClose(this.state.value)} color="primary">
               Submit
             </Button>
           </DialogActions>

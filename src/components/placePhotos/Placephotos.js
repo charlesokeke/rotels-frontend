@@ -10,7 +10,8 @@ const styles = theme => ({
     flexWrap: "wrap",
     justifyContent: "space-around",
     overflow: "hidden",
-    backgroundColor: theme.palette.background.paper
+    backgroundColor: theme.palette.background.paper,
+    boxSizing:'border-box'
   },
   gridList: {
     flexWrap: "nowrap",

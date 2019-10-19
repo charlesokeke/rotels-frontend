@@ -47,6 +47,8 @@ class RenderMap extends React.PureComponent {
     mapReference
   ) => {
     const { changedAddress, lat, lng, destination } = this.props;
+    console.log( typeof changedAddress)
+    console.log(lat,lng)
     directionsService.route(
       {
         origin: changedAddress || `${lat},${lng}`,

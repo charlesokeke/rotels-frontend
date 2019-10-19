@@ -69,7 +69,6 @@ class NameForm extends React.PureComponent {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         this.setState(prevState => {
           return {
             hotelOrRestaurantData: data.results,
@@ -84,7 +83,6 @@ class NameForm extends React.PureComponent {
   };
   //Get resturant details from Google Places API
   fetchRestaurantDetails = (url, object) => {
-    // this state change shows the spinners component and hides the next button if a new query is done
     this.setState({
       spinners: true,
       hotelOrRestaurantData: "",
@@ -107,7 +105,7 @@ class NameForm extends React.PureComponent {
   };
   // Generic function that calls FetchRestaurantDetails with Place Id passed in as parameter
   getPlaceDetails = place_id => {
-    //This state change makes sure that the next button does not appear after you go to the details page and return to another view
+    //This state change makes sure that the next button does not appear after you go to the details page and return to the main page
     this.setState({
       pageToken: null
     });
@@ -176,7 +174,7 @@ class NameForm extends React.PureComponent {
       nearbySearch: value
     });
   };
-  // Handles the filtered search for current and past search results
+  // Handles the  search functionality for current and past search results
   handleSearch = event => {
     const { dataCollection } = this.state;
     if (dataCollection.length === 0) {
