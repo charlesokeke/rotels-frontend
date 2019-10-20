@@ -42,15 +42,15 @@ export default class FormDialog extends React.PureComponent {
           <DialogTitle id="form-dialog-title">Start Address</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              Change Origin Address
+              Enter a new start address to reset the driving directions map with a new start address
             </DialogContentText>
             <TextField
               autoFocus
               margin="dense"
               label="New Start address"
               type="text"
-              fullWidth
               onChange={this.getValue}
+              fullWidth
             />
           </DialogContent>
           <DialogActions>

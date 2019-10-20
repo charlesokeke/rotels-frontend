@@ -271,6 +271,7 @@ class NameForm extends React.PureComponent {
           id="input-box"
           onChange={this.handleSearch}
           onBlur={this.clear}
+          autoComplete="off"
         />
 
         <form onSubmit={this.handleSubmit} className="formInputs">
@@ -282,6 +283,7 @@ class NameForm extends React.PureComponent {
             placeholder={`Enter a city & state to search  for ${searchOption.toLowerCase()}`}
             id="input-box"
             ref={this.myRef2}
+            autoComplete="off"
           />
           <span> OR</span>
 
