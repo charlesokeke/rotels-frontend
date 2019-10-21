@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/rotels-frontend/static/js/runtime~main.c03f0c83.js"
   },
   {
-    "revision": "c9a22f62c1db517c4394",
-    "url": "/rotels-frontend/static/js/main.4a5fd875.chunk.js"
+    "revision": "dc3118a7f469690ad59f",
+    "url": "/rotels-frontend/static/js/main.ba4092a7.chunk.js"
   },
   {
     "revision": "4e4cd9c620087b7988c9",
     "url": "/rotels-frontend/static/js/2.95a80f15.chunk.js"
   },
   {
-    "revision": "c9a22f62c1db517c4394",
+    "revision": "dc3118a7f469690ad59f",
     "url": "/rotels-frontend/static/css/main.9f7880c5.chunk.css"
   },
   {
-    "revision": "1d2543f084ba91a7fe978425c4069111",
+    "revision": "e52e40a440312a4314af70d538f63915",
     "url": "/rotels-frontend/index.html"
   }
 ];
