@@ -82,7 +82,7 @@ class PlaceDetailsInfo extends React.PureComponent {
                     <Icon color="primary">star</Icon>Rating:{" "}
                     {Number.isInteger(rating)
                       ? `${rating}.0`
-                      : `${rating.toFixed(1)}`}
+                      : rating ? `${rating.toFixed(1)}`: "None available"}
                   </p>
                   <p className="place-icons">
                     <Icon color="primary">star</Icon>Total rating:{" "}

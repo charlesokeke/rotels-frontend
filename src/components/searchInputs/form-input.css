@@ -110,7 +110,7 @@ label,span, input {
 
 @media screen and (max-width:720px) {
 	.formInputs{
-		width:100%;
+		width:90%;
 	}
 	.reset-button{
 		width:20%;

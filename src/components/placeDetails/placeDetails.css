@@ -21,6 +21,7 @@
 	align-items: center;
 	flex:1;
 	flex-direction: column;
+	box-sizing: border-box;
 }
 
 .status-color-open{
@@ -35,6 +36,7 @@
 	background-color: #fbfbfb;
 	box-sizing: border-box;
 	padding:20px;
+	box-sizing: border-box;
 
 }
 

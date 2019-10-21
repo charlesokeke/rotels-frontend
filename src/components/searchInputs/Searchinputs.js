@@ -136,6 +136,7 @@ class NameForm extends React.PureComponent {
       value: elementValue,
       confirmPlaceDetail: false
     });
+
   };
   // Handles the search for nearby restaurants or searches based on city, state or country
   handleSubmit = event => {
@@ -166,6 +167,7 @@ class NameForm extends React.PureComponent {
 
   // Handles the disabling and enabling of the quick search checkbox
   handleInputChange = event => {
+    const {  searchOption, location } = this.state;
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     let element = this.myRef2.current;
@@ -173,6 +175,14 @@ class NameForm extends React.PureComponent {
     this.setState({
       nearbySearch: value
     });
+    if(value){
+      this.fetchRestaurantData(
+        "https://fast-plains-49197.herokuapp.com/nearby_restaurants",
+        { ...location, keyword: searchOption.toLowerCase() }
+      );
+    }
+    
+
   };
   // Handles the  search functionality for current and past search results
   handleSearch = event => {
@@ -288,7 +298,7 @@ class NameForm extends React.PureComponent {
           <span> OR</span>
 
           <label className="checkbox-container">
-            {`Search nearby ${searchOption.toLowerCase()}`}:
+            {`Show nearby ${searchOption.toLowerCase()}`}:
             <input
               name="nearbySearch"
               type="checkbox"
