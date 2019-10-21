@@ -290,7 +290,7 @@ class NameForm extends React.PureComponent {
             value={value}
             onChange={this.handleChange}
             className="input-box"
-            placeholder={`Enter a city & state to search  for ${searchOption.toLowerCase()}`}
+            placeholder={`Enter city & state to search  for ${searchOption.toLowerCase()}`}
             id="input-box"
             ref={this.myRef2}
             autoComplete="off"

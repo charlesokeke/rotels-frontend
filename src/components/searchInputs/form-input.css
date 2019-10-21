@@ -38,17 +38,19 @@ label,span, input {
 }
 .input-box{
 	width:70%;
-	font-size:1rem;
+	font-size:1.15rem;
   padding:8px;
   height: 30px;
-  letter-spacing: 1px;
-  font-weight: 500;
+  font-weight: 400;
+  letter-spacing: 0;
   color: #000;
   border: none;
-  border-radius: 20px;
-  box-shadow: 0px 8px 15px #ccc;
+  line-height: 1.6;
+  border-radius: 5px;
+  box-shadow: 0px 2px 3px #ccc;
   cursor: pointer;
   outline: none;
+  word-spacing: 0;
 
 
 

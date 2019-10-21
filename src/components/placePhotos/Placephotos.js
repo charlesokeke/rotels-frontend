@@ -15,7 +15,8 @@ const styles = theme => ({
   },
   gridList: {
     flexWrap: "nowrap",
-    transform: "translateZ(0)"
+    transform: "translateZ(0)",
+    boxSizing:"border-box"
   },
   title: {
     color: theme.palette.primary.light
