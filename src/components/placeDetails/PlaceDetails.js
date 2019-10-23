@@ -12,7 +12,8 @@ import Icon from "@material-ui/core/Icon";
 class PlaceDetailsInfo extends React.PureComponent {
   state = {
     open: false,
-    changeOriginAddress: ""
+    changeOriginAddress: "",
+    noDrivingDirection:true
   };
 
   handleClose = (value) => {
@@ -23,6 +24,9 @@ class PlaceDetailsInfo extends React.PureComponent {
       });
 
   };
+  checkForDrivingDirections = (isThereDrivibgDirections) =>{
+    this.setState({noDrivingDirection:isThereDrivibgDirections})
+  }
 
 
   render() {
@@ -129,8 +133,11 @@ class PlaceDetailsInfo extends React.PureComponent {
                   Website
                 </a>
               </p>
-              <p>
-                <a
+              
+               {this.state.noDrivingDirection === "Driving direction unavailable" ? null:
+               (<React.Fragment>
+                 <p> 
+                 <a
                   href={`${url}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -138,13 +145,13 @@ class PlaceDetailsInfo extends React.PureComponent {
                 >
                   Navigation
                 </a>
-              </p>
+               </p>
               <FormDialog
                 handleClose={this.handleClose}
                 margin="dense"
                 autofocus
                 fullwidth
-              />
+               /></React.Fragment>)}
             </div>
             <Divider variant="middle" />
             <RenderMap
@@ -152,6 +159,7 @@ class PlaceDetailsInfo extends React.PureComponent {
               lat={lat}
               lng={lng}
               changedAddress={changeOriginAddress}
+              checkForDrivingDirections={this.checkForDrivingDirections}
             />
           </div>
         </div>

@@ -23,9 +23,7 @@ export default class FormDialog extends React.PureComponent {
   handleClickClose = () => {
     this.setState({ open: false });
   }
-  static getDerivedStateFromProps(nextProps, prevState){
-    console.log('hello')
-  }
+
   render() {
     const{ handleClose} = this.props
 

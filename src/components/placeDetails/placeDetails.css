@@ -1,5 +1,5 @@
 .place-details-info-container{
-	width:90%;
+	max-width:90%;
 	display:flex;
 	flex-direction: row;
 	margin-top:10px;
@@ -37,6 +37,7 @@
 	box-sizing: border-box;
 	padding:20px;
 	box-sizing: border-box;
+	position: relative;
 
 }
 
@@ -60,7 +61,7 @@
 @media screen and (max-width:1030px) {
 	.place-details-info-container{
 		flex-direction: column;
-		width:100%;
+		max-width:100%;
 		border:none;
 	  }
 	  .place-details-boxes{
@@ -68,6 +69,9 @@
 	}
 	.weekdays-add-phone-and-rating-container{
 		flex-direction:column;
+	}
+	.weekdays-container{
+		display:block;
 	}
 	
 }

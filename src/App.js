@@ -45,7 +45,7 @@ class App extends React.Component {
               <div className="landing-page-message">
                 <h3 className="title">
                   {" "}
-                  Search for restaurants
+                  Search for restaurants locally or globally
                 </h3>
                 <Select
                   className="test"
