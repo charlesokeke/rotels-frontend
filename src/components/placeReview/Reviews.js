@@ -6,7 +6,8 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
 import Badge from "@material-ui/core/Badge";
-import RatingComponent from "../../../node_modules/@cogent-labs/react-rating-component/es/RatingComponent";
+//import RatingComponent from "../../../node_modules/@cogent-labs/react-rating-component/es/RatingComponent";
+import StarRatingComponent from 'react-star-rating-component';
 import green from "@material-ui/core/colors/green";
 
 const styles = theme => ({
@@ -55,9 +56,12 @@ class ComplexGrid extends React.PureComponent {
                 <Grid item xs>
                   <Typography variant="subtitle1">{name}</Typography>
                   <Typography color="textSecondary">{time}</Typography>
-                  <RatingComponent
+                  
+                   <StarRatingComponent 
+                    name="rate2" 
+                    editing={false}
                     starCount={Math.round(rating)}
-                    name={"star"}
+                    value={8}
                   />
                   <Typography>{text}</Typography>
                 </Grid>
