@@ -56,7 +56,6 @@ class ComplexGrid extends React.PureComponent {
                 <Grid item xs>
                   <Typography variant="subtitle1">{name}</Typography>
                   <Typography color="textSecondary">{time}</Typography>
-                  
                    <StarRatingComponent 
                     name="rate2" 
                     editing={false}
