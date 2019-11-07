@@ -13,7 +13,7 @@ class PlaceDetailsInfo extends React.PureComponent {
   state = {
     open: false,
     changeOriginAddress: "",
-    noDrivingDirection:true
+    noDrivingDirection:null
   };
 
   handleClose = (value) => {

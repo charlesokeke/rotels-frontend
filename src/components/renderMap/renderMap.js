@@ -6,7 +6,7 @@ class RenderMap extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      noMap: null
+      noMap: false
     };
     this.mapRef = React.createRef();
     this.panelRef = React.createRef();
@@ -17,7 +17,7 @@ class RenderMap extends React.PureComponent {
   }
   componentDidUpdate() {
     this.initMap();
-    this.props.checkForDrivingDirections(this.state.noMap)
+    
   }
 
   initMap = () => {
@@ -27,7 +27,6 @@ class RenderMap extends React.PureComponent {
     const mapReference = this.mapRef.current;
     if (mapReference) mapReference.innerHTML = "";
     if (rightPanel) rightPanel.innerHTML = "";
-
     const map = new window.google.maps.Map(mapReference, {
       zoom: 7,
       center: { lat: this.props.lat, lng: this.props.lng }
@@ -48,7 +47,7 @@ class RenderMap extends React.PureComponent {
     rightPanel,
     mapReference
   ) => {
-    const { changedAddress, lat, lng, destination } = this.props;
+    const { changedAddress, lat, lng, destination, checkForDrivingDirections} = this.props;
     directionsService.route(
       {
         origin: changedAddress || `${lat},${lng}`,
@@ -61,7 +60,8 @@ class RenderMap extends React.PureComponent {
         } else {
           mapReference.style.height = "0px";
           rightPanel.style.height = "0px";
-          this.setState({ noMap: "Driving direction unavailable" });
+          this.setState({ noMap: true});
+          checkForDrivingDirections("Driving direction unavailable")
         }
       }
     );
@@ -83,7 +83,7 @@ class RenderMap extends React.PureComponent {
               borderRadius: "4px"
             }}
           >
-            <strong>{this.state.noMap}</strong>
+            <strong>Driving directions  unavailable</strong>
           </div>
         ) : null}
       </div>

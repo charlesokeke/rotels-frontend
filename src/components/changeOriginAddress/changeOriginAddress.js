@@ -16,16 +16,20 @@ export default class FormDialog extends React.PureComponent {
   getValue = (event) => {
      this.setState({value:event.target.value})
   }
+  // open modal when edit address button is clicked
   handleClickOpen = () => {
-    
     this.setState({ open: true });
   }
+  // close modal when the close modal is clicked
   handleClickClose = () => {
     this.setState({ open: false });
   }
-
+  //close modals onblur, onsubmit and when the close button is clicked.
+ closeAllModel = () =>{
+   this.props.handleClose(this.state.value)
+   this.setState({ open: false });
+ }
   render() {
-    const{ handleClose} = this.props
 
     return (
       <div>
@@ -55,7 +59,7 @@ export default class FormDialog extends React.PureComponent {
             <Button onClick={this.handleClickClose} color="primary">
               Cancel
             </Button>
-            <Button onClick={() =>handleClose(this.state.value)} color="primary">
+            <Button onClick={this.closeAllModel} color="primary">
               Submit
             </Button>
           </DialogActions>
