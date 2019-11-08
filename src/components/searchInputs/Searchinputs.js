@@ -140,27 +140,22 @@ class NameForm extends React.PureComponent {
   };
   // Handles the search for nearby restaurants or searches based on city, state or country
   handleSubmit = event => {
-    // This ref disables the element so it will work when when the query submits a search string
+    // This ref disables the element so it will work when the query submits a search string
     this.myRef.current.disabled = false;
-    const { value, nearbySearch, searchOption, location } = this.state;
+    const { value, nearbySearch, searchOption } = this.state;
     event.preventDefault();
     this.setState({
       value: ""
     });
 
-    if (value || nearbySearch) {
-      if (nearbySearch) {
-        this.fetchRestaurantData(
-          "https://fast-plains-49197.herokuapp.com/nearby_restaurants",
-          { ...location, keyword: searchOption.toLowerCase() }
-        );
-      } else if (value) {
-        this.fetchRestaurantData(
-          "https://fast-plains-49197.herokuapp.com/state_restaurants",
-          { name: value, searchOption: searchOption.toLowerCase() }
-        );
-      }
-    } else {
+    if (value) {
+      this.fetchRestaurantData(
+        "https://fast-plains-49197.herokuapp.com/state_restaurants",
+        { name: value, searchOption: searchOption.toLowerCase() }
+      );
+    } else if(nearbySearch) {
+      alert("Please enter city and state and uncheck the checkbox ");
+    }else{
       alert("Please enter city and state or select the quick search option");
     }
   };
