@@ -1,5 +1,5 @@
 # Rhotels
-# What the Application Does
+# What the Application Does ?
 The application allows users to search for restaurants anywhere in the world and provides details about the restaurant. It also provides driving direction to the user based on the current geolocation. Additionally, it is mobile responsive and provides navigational turn-by-turn direction when accessed from a mobile device.Furthermore, it also provides a search functionality for current and past restaurants results.
 
 # Browser Compatibility
