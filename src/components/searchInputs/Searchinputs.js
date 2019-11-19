@@ -72,7 +72,7 @@ class NameForm extends React.PureComponent {
       .then(data => {
         console.log(data)
         if(data.status === "ZERO_RESULTS"){
-          this.setState({zeroResult:"No Data found"})
+          this.setState({zeroResult:"No Data found",spinners:false})
           
         }else{
           this.setState(prevState => {
