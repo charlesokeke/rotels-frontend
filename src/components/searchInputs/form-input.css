@@ -81,6 +81,13 @@ label,span, input {
   
 }
 
+.alert-danger{
+  color: #a94442;
+  font-weight: bold;
+  text-align: center;
+
+}
+
 /* checkbox css start from here*/
 
 .checkbox-container {

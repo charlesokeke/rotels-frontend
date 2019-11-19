@@ -11,6 +11,7 @@ class NameForm extends React.PureComponent {
     const { displayRestaurantsResult, selectedOption } = this.props;
     this.state = {
       value: "",
+      zeroResult:null,
       nearbySearch: false,
       searchOption: selectedOption.value,
       displayRestaurantsResult: displayRestaurantsResult,
@@ -69,17 +70,26 @@ class NameForm extends React.PureComponent {
     })
       .then(response => response.json())
       .then(data => {
-        this.setState(prevState => {
-          return {
-            hotelOrRestaurantData: data.results,
-            displayRestaurantsResult: true,
-            confirmPlaceDetail: false,
-            pageToken: data.next_page_token,
-            spinners: false,
-            dataCollection: prevState.dataCollection.concat(data.results)
-          };
-        });
-      });
+        console.log(data)
+        if(data.status === "ZERO_RESULTS"){
+          this.setState({zeroResult:"No Data found"})
+          
+        }else{
+          this.setState(prevState => {
+            return {
+              hotelOrRestaurantData: data.results,
+              displayRestaurantsResult: true,
+              confirmPlaceDetail: false,
+              pageToken: data.next_page_token,
+              spinners: false,
+              dataCollection: prevState.dataCollection.concat(data.results)
+            };
+          });
+        }
+        
+      }).catch(error => {
+        console.log(error)
+      })
   };
   //Get resturant details from Google Places API
   fetchRestaurantDetails = (url, object) => {
@@ -316,7 +326,11 @@ class NameForm extends React.PureComponent {
         <div className="hotel-container">
           {displayRestaurantsResult && hotelOrRestaurantData.length
             ? this.handleRestaurantData(hotelOrRestaurantData)
-            : null}
+            : 
+            (<h4 className="alert-danger">
+                {this.state.zeroResult}
+             </h4>
+            )}
         </div>
         {placeDetails && confirmPlaceDetail ? (
           <PlaceDetailsInfo
