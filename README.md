@@ -8,7 +8,8 @@
 This applications allows users to search for restaurant worldwide. It provides text based and navigational direction using the 
 users current geolocation. Futhermore,users can change the start address of the driving directions and provides search functionalities for current and past results. More importantly, this App requires that the user provide permission for geolocation detection to work properly. 
 
-### `npm test`
+### Browser Compatibility.
+This application works in all major broser with the exception of Internet Explorer.
 
 Launches the test runner in the interactive watch mode.<br>
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
