@@ -9,6 +9,9 @@ This applications allows users to search for restaurant worldwide and provide de
 ### Browser Compatibility.
 This application works in all major browser with the exception of Internet Explorer.
 
+## Important
+This App depends on user permission for geolocation detection to work properly. 
+
 ### Technologies Used
 React, JavaScript/ES6, CSS, HTML, MaterialUI, Loadash, Node.js, Express and Bootstrap
 
