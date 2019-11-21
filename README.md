@@ -1,16 +1,12 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Rhotels
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### What the application does:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+This applications allows users to search for restaurant worldwide. It provides text based and navigational direction using the 
+users current geolocation. Futhermore,users can change the start address of the driving directions and provides search functionalities for current and past results. More importantly, this App requires that the user provide permission for geolocation detection to work properly. 
 
 ### `npm test`
 
